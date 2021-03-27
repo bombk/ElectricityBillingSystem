@@ -9,10 +9,23 @@ class DB_Work extends Controller
 {
     function select(){
         $result=DB::table('5amp')->select('minAmt','energyRate')->get();
-       // $result=DB::table('5amp')->select('minAmt')->where('kw/hr','0-10')->get();
-        
+       // $result=DB::table('5amp')->select('minAmt')->where('kw/hr','0-10')->get();   
         echo '<pre>';
         print_r($result);
+        
+        $result=DB::table('15amp')->select('minAmt','energyRate')->get();
+        // $result=DB::table('5amp')->select('minAmt')->where('kw/hr','0-10')->get();   
+         echo '<pre>';
+         print_r($result);
 
+         $result=DB::table('30amp')->select('minAmt','energyRate')->get();
+         // $result=DB::table('5amp')->select('minAmt')->where('kw/hr','0-10')->get();   
+          echo '<pre>';
+          print_r($result);
+
+          $result=DB::table('60amp')->select('minAmt','energyRate')->get();
+          // $result=DB::table('5amp')->select('minAmt')->where('kw/hr','0-10')->get();   
+           echo '<pre>';
+           print_r($result);
    }
 }
