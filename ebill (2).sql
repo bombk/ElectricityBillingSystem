@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2021 at 06:58 AM
+-- Generation Time: Apr 01, 2021 at 09:21 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `5amp` (
   `id` int(11) NOT NULL,
-  `kw/hr` varchar(20) NOT NULL,
+  `kwprhr` varchar(20) NOT NULL,
   `minAmt` int(11) NOT NULL,
   `energyRate` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -38,7 +38,7 @@ CREATE TABLE `5amp` (
 -- Dumping data for table `5amp`
 --
 
-INSERT INTO `5amp` (`id`, `kw/hr`, `minAmt`, `energyRate`) VALUES
+INSERT INTO `5amp` (`id`, `kwprhr`, `minAmt`, `energyRate`) VALUES
 (1, '0-10', 30, 0),
 (2, '11-20', 30, 3),
 (3, '21-30', 50, 6.5),
@@ -57,7 +57,7 @@ INSERT INTO `5amp` (`id`, `kw/hr`, `minAmt`, `energyRate`) VALUES
 
 CREATE TABLE `15amp` (
   `id` int(11) NOT NULL,
-  `kw/hr` varchar(20) NOT NULL,
+  `kwprhr` varchar(20) NOT NULL,
   `minAmt` int(11) NOT NULL,
   `energyRate` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -66,7 +66,7 @@ CREATE TABLE `15amp` (
 -- Dumping data for table `15amp`
 --
 
-INSERT INTO `15amp` (`id`, `kw/hr`, `minAmt`, `energyRate`) VALUES
+INSERT INTO `15amp` (`id`, `kwprhr`, `minAmt`, `energyRate`) VALUES
 (1, '0-10', 50, 4),
 (2, '11-20', 50, 4),
 (3, '21-30', 75, 6.5),
@@ -85,7 +85,7 @@ INSERT INTO `15amp` (`id`, `kw/hr`, `minAmt`, `energyRate`) VALUES
 
 CREATE TABLE `30amp` (
   `id` int(11) NOT NULL,
-  `kw/hr` varchar(20) NOT NULL,
+  `kwprhr` varchar(20) NOT NULL,
   `minAmt` int(11) NOT NULL,
   `energyRate` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -94,7 +94,7 @@ CREATE TABLE `30amp` (
 -- Dumping data for table `30amp`
 --
 
-INSERT INTO `30amp` (`id`, `kw/hr`, `minAmt`, `energyRate`) VALUES
+INSERT INTO `30amp` (`id`, `kwprhr`, `minAmt`, `energyRate`) VALUES
 (1, '0-10', 75, 5),
 (2, '11-20', 75, 5),
 (3, '21-30', 100, 6.5),
@@ -113,7 +113,7 @@ INSERT INTO `30amp` (`id`, `kw/hr`, `minAmt`, `energyRate`) VALUES
 
 CREATE TABLE `60amp` (
   `id` int(11) NOT NULL,
-  `kw/hr` varchar(20) NOT NULL,
+  `kwprhr` varchar(20) NOT NULL,
   `minAmt` int(11) NOT NULL,
   `energyRate` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -122,7 +122,7 @@ CREATE TABLE `60amp` (
 -- Dumping data for table `60amp`
 --
 
-INSERT INTO `60amp` (`id`, `kw/hr`, `minAmt`, `energyRate`) VALUES
+INSERT INTO `60amp` (`id`, `kwprhr`, `minAmt`, `energyRate`) VALUES
 (1, '0-10', 125, 6),
 (2, '11-20', 125, 6),
 (3, '21-30', 125, 6.5),
@@ -132,6 +132,26 @@ INSERT INTO `60amp` (`id`, `kw/hr`, `minAmt`, `energyRate`) VALUES
 (7, '151-250', 200, 10),
 (8, '251-400', 250, 11),
 (9, '400 Above', 275, 12);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `email`, `password`) VALUES
+(1, 'bom', 'bomncit@gmail.com', '123');
 
 --
 -- Indexes for dumped tables
@@ -162,6 +182,12 @@ ALTER TABLE `60amp`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -188,6 +214,12 @@ ALTER TABLE `30amp`
 --
 ALTER TABLE `60amp`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

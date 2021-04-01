@@ -16,8 +16,9 @@ use App\Http\Controllers\DB_Work;
 Route::get('/', function () {
     return view('login');
 });
-Route::get("select",[DB_Work::class,'select']);
+Route::get("home",[DB_Work::class,'select']);
 Route::view('register',"register");
-Route::view('login','login');
 Route::post("/store",[DB_Work::class,'store']);
 Route::post("/logs",[DB_Work::class,'logs']);
+Route::post("/calculate",[DB_Work::class,'calculate']);
+//Route::post('index',"index");
