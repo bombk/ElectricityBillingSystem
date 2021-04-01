@@ -56,8 +56,9 @@ class DB_Work extends Controller
     }
     public function calculate(Request $req){
           $unit= $req->unit;
-          if($unit<=10){
 
+          if($unit<=10){
+            $qmlv=0;
             $minAmt=DB::table('5amp')->select('minAmt')->where('id','1')->get();
             $data=json_decode($minAmt);
             $finalMinAmt=$data[0]->minAmt;
@@ -66,7 +67,7 @@ class DB_Work extends Controller
             $data1=json_decode($energyRate);
             $finalEnRt=$data1[0]->energyRate;
            
-           $calc=$finalMinAmt+$unit*$finalEnRt;
+           $calc=$finalMinAmt+$qmlv+$unit*$finalEnRt;
             return $calc;
 
           }
@@ -85,7 +86,7 @@ class DB_Work extends Controller
 
           }
           else if($unit > 20 && $unit <= 30){
-
+            $qmlv=60;
             $minAmt=DB::table('5amp')->select('minAmt')->where('id','3')->get();
             $data=json_decode($minAmt);
             $finalMinAmt=$data[0]->minAmt;
@@ -94,12 +95,12 @@ class DB_Work extends Controller
             $data1=json_decode($energyRate);
             $finalEnRt=$data1[0]->energyRate;
            
-           $calc=$finalMinAmt+$unit*$finalEnRt;
+           $calc=$finalMinAmt+$qmlv+($unit-20)*$finalEnRt;
             return $calc;
 
           }
           else if($unit > 30 && $unit <= 50){
-
+            $qmlv=125;
             $minAmt=DB::table('5amp')->select('minAmt')->where('id','4')->get();
             $data=json_decode($minAmt);
             $finalMinAmt=$data[0]->minAmt;
@@ -108,12 +109,12 @@ class DB_Work extends Controller
             $data1=json_decode($energyRate);
             $finalEnRt=$data1[0]->energyRate;
            
-           $calc=$finalMinAmt+$unit*$finalEnRt;
+           $calc=$finalMinAmt+$qmlv+($unit-30)*$finalEnRt;
             return $calc;
 
           }
           else if($unit > 50 && $unit <= 100){
-
+            $qmlv=285;
             $minAmt=DB::table('5amp')->select('minAmt')->where('id','5')->get();
             $data=json_decode($minAmt);
             $finalMinAmt=$data[0]->minAmt;
@@ -122,12 +123,12 @@ class DB_Work extends Controller
             $data1=json_decode($energyRate);
             $finalEnRt=$data1[0]->energyRate;
            
-           $calc=$finalMinAmt+$unit*$finalEnRt;
+           $calc=$finalMinAmt+$qmlv+($unit-50)*$finalEnRt;
             return $calc;
 
           }
           else if($unit > 100 && $unit <= 150){
-
+            $qmlv=760;
             $minAmt=DB::table('5amp')->select('minAmt')->where('id','6')->get();
             $data=json_decode($minAmt);
             $finalMinAmt=$data[0]->minAmt;
@@ -136,12 +137,12 @@ class DB_Work extends Controller
             $data1=json_decode($energyRate);
             $finalEnRt=$data1[0]->energyRate;
            
-           $calc=$finalMinAmt+$unit*$finalEnRt;
+           $calc=$finalMinAmt+$qmlv+($unit-100)*$finalEnRt;
             return $calc;
 
           }
           else if($unit > 150 && $unit <= 250){
-
+            $qmlv=1235;
             $minAmt=DB::table('5amp')->select('minAmt')->where('id','7')->get();
             $data=json_decode($minAmt);
             $finalMinAmt=$data[0]->minAmt;
@@ -150,12 +151,12 @@ class DB_Work extends Controller
             $data1=json_decode($energyRate);
             $finalEnRt=$data1[0]->energyRate;
            
-           $calc=$finalMinAmt+$unit*$finalEnRt;
+           $calc=$finalMinAmt+$qmlv+($unit-150)*$finalEnRt;
             return $calc;
 
           }
           else if($unit > 250 && $unit <= 400){
-
+            $qmlv=2235;
             $minAmt=DB::table('5amp')->select('minAmt')->where('id','8')->get();
             $data=json_decode($minAmt);
             $finalMinAmt=$data[0]->minAmt;
@@ -164,12 +165,13 @@ class DB_Work extends Controller
             $data1=json_decode($energyRate);
             $finalEnRt=$data1[0]->energyRate;
            
-           $calc=$finalMinAmt+$unit*$finalEnRt;
+           $calc=$finalMinAmt+$qmlv($unit-250)*$finalEnRt;
             return $calc;
 
           }
           
           else{
+            $qmlv=4035;
             $minAmt=DB::table('5amp')->select('minAmt')->where('id','9')->get();
             $data=json_decode($minAmt);
             $finalMinAmt=$data[0]->minAmt;
@@ -179,7 +181,7 @@ class DB_Work extends Controller
             $finalEnRt=$data1[0]->energyRate;
            
            // return $finalMinAmt;
-           $calc=$finalMinAmt+$unit*$finalEnRt;
+           $calc=$finalMinAmt+$qmlv+($unit-400)*$finalEnRt;
             return $calc;
           }
 
