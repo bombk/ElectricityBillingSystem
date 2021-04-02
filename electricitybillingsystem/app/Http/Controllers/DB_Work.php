@@ -73,7 +73,8 @@ class DB_Work extends Controller
             $finalEnRt=$data1[0]->energyRate;
            
            $calc=$finalMinAmt+$qmlv+$unit*$finalEnRt;
-            return $calc;
+      
+            return "Total Amount is Rs. ".$calc;
 
           }
           else if($unit > 10 && $unit <= 20){
@@ -87,7 +88,7 @@ class DB_Work extends Controller
             $finalEnRt=$data1[0]->energyRate;
            
            $calc=$finalMinAmt+$unit*$finalEnRt;
-            return $calc;
+            return "Total Amount is Rs. ".$calc;
 
           }
           else if($unit > 20 && $unit <= 30){
@@ -101,7 +102,7 @@ class DB_Work extends Controller
             $finalEnRt=$data1[0]->energyRate;
            
            $calc=$finalMinAmt+$qmlv+($unit-20)*$finalEnRt;
-            return $calc;
+            return "Total Amount is Rs. ".$calc;
 
           }
           else if($unit > 30 && $unit <= 50){
@@ -115,7 +116,7 @@ class DB_Work extends Controller
             $finalEnRt=$data1[0]->energyRate;
            
            $calc=$finalMinAmt+$qmlv+($unit-30)*$finalEnRt;
-            return $calc;
+            return "Total Amount is Rs. ".$calc;
 
           }
           else if($unit > 50 && $unit <= 100){
@@ -129,7 +130,7 @@ class DB_Work extends Controller
             $finalEnRt=$data1[0]->energyRate;
            
            $calc=$finalMinAmt+$qmlv+($unit-50)*$finalEnRt;
-            return $calc;
+            return "Total Amount is Rs. ".$calc;
 
           }
           else if($unit > 100 && $unit <= 150){
@@ -143,7 +144,7 @@ class DB_Work extends Controller
             $finalEnRt=$data1[0]->energyRate;
            
            $calc=$finalMinAmt+$qmlv+($unit-100)*$finalEnRt;
-            return $calc;
+            return "Total Amount is Rs. ".$calc;
 
           }
           else if($unit > 150 && $unit <= 250){
@@ -157,7 +158,7 @@ class DB_Work extends Controller
             $finalEnRt=$data1[0]->energyRate;
            
            $calc=$finalMinAmt+$qmlv+($unit-150)*$finalEnRt;
-            return $calc;
+            return "Total Amount is Rs. ".$calc;
 
           }
           else if($unit > 250 && $unit <= 400){
@@ -171,7 +172,7 @@ class DB_Work extends Controller
             $finalEnRt=$data1[0]->energyRate;
            
            $calc=$finalMinAmt+$qmlv($unit-250)*$finalEnRt;
-            return $calc;
+            return "Total Amount is Rs. ".$calc;
 
           }
           
@@ -187,7 +188,7 @@ class DB_Work extends Controller
            
            // return $finalMinAmt;
            $calc=$finalMinAmt+$qmlv+($unit-400)*$finalEnRt;
-            return $calc;
+            return "Total Amount is Rs. ".$calc;
           }
 
     }
