@@ -35,8 +35,13 @@ class DB_Work extends Controller
      $email=$request->input('email');
      $password=$request->input('password');
 
-     DB::insert('insert into user(name,email,password) values(?,?,?)',[$name,$email,$password]);
-     echo "Register Sucessful";
+  $data2= DB::insert('insert into user(name,email,password) values(?,?,?)',[$name,$email,$password]);
+  
+     //echo "Register Sucessful";
+    
+      $request->session()->flash('msg','Register Sucessful');
+      return redirect('/');
+    
     
   }
  public function logs(Request $request){
