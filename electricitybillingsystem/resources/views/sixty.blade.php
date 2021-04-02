@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>5 Amp</title>
+        <title>60 Amp</title>
     
 
        
@@ -19,7 +19,7 @@
         <option>60 Amp</option>
     </select>
     <br></br>
-    <h3> 5 Ampare Table</h3>
+    <h3>60 Ampare Table</h3>
     <table border="2">
         <tr>
           
@@ -39,7 +39,7 @@
     </table>
     <br><br>
    
-   <form method="post" action="{{URL::to('calculate')}}">
+   <form method="post" action="{{URL::to('calculate3')}}">
    @csrf
     <input type="number" placeholder="Enter Total Unit" name="unit">
     <input type="submit" value="Calculate" name="submit">
