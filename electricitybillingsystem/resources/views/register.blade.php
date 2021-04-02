@@ -3,6 +3,7 @@
 
     </head>
         <body>
+        <h3>Register User</h3>
 
             <form class="" action="{{URL::to('store')}}" method="post">
             @csrf

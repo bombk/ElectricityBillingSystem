@@ -5,7 +5,7 @@
         <body>
         {{session('msg')}}
             <br><br>
-
+            <h3>Login User</h3>
             <form class="" action="{{URL::to('logs')}}" method="post">
             @csrf
                     <input type="text" name="name" placeholder="name" value=""><br><br>
