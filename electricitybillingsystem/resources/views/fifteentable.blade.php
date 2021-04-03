@@ -12,12 +12,13 @@
         </style>
     </head>
     <body class="">
-    <select>
-        <option>5 Amp</option>
-        <option>15 Amp</option>
-        <option>30 Amp</option>
-        <option>60 Amp</option>
-    </select>
+    <select id="url" onchange="urlHandler(this.value)">
+            <option disabled selected value>Select Option</option>
+            <option value="{{URL::to('home')}}">5 Ampere</option>
+            <option value="{{URL::to('fifteentable')}}">15 Ampere</option>
+            <option value="{{URL::to('thirtytable')}}">30 Ampere</option>
+            <option value="{{URL::to('sixtytable')}}">60 Ampere</option>
+        </select>
     <br></br>
     <h3>15 Ampare Table</h3>
     <table border="2">
@@ -46,4 +47,9 @@
    </form>
         
     </body>
+    <script>
+ function urlHandler(value) {                               
+    window.location.assign(`${value}`);
+}
+</script>
 </html>

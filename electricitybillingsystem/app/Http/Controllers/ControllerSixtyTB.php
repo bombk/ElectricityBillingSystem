@@ -12,7 +12,7 @@ class ControllerSixtyTB extends Controller
     function select(){
         $result=DB::table('60amp')->get();
        // $result=DB::table('5amp')->select('minAmt')->where('kw/hr','0-10')->get();   
-      return view('sixty',compact('result'));
+      return view('sixtytable',compact('result'));
         
        // $result=DB::table('15amp')->select('minAmt','energyRate')->get();
         // $result=DB::table('5amp')->select('minAmt')->where('kw/hr','0-10')->get();   
