@@ -134,6 +134,7 @@ class ControllerFifteenTB extends Controller
 
           }
           else if($unit > 250 && $unit <= 400){
+          
             $qmlv=1355;
             $minAmt=DB::table('15amp')->select('minAmt')->where('id','8')->get();
             $data=json_decode($minAmt);
@@ -143,7 +144,7 @@ class ControllerFifteenTB extends Controller
             $data1=json_decode($energyRate);
             $finalEnRt=$data1[0]->energyRate;
            
-           $calc=$finalMinAmt+$qmlv($unit-250)*$finalEnRt;
+           $calc=$finalMinAmt+$qmlv+($unit-250)*$finalEnRt;
             return "Total Amount is Rs. ".$calc;
 
           }

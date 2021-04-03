@@ -144,7 +144,7 @@ class ControllerSixtyTB extends Controller
             $data1=json_decode($energyRate);
             $finalEnRt=$data1[0]->energyRate;
            
-           $calc=$finalMinAmt+$qmlv($unit-250)*$finalEnRt;
+           $calc=$finalMinAmt+$qmlv+($unit-250)*$finalEnRt;
             return "Total Amount is Rs. ".$calc;
 
           }
