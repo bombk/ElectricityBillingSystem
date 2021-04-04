@@ -13,6 +13,8 @@
             
                  <button type="submit" name="button">Register</button>
             </form>
+            <br><br>
+            <a href="/">Click Here to Login</a>
          
         </body>
 </html>
