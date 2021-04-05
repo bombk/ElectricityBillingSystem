@@ -20,7 +20,7 @@ class DB_Work extends Controller
      $email=$request->input('email');
      $password=$request->input('password');
 
-  $data2= DB::insert('insert into user(name,email,password) values(?,?,?)',[$name,$email,$password]);
+  $data2= DB::insert('insert into users(name,email,password) values(?,?,?)',[$name,$email,$password]);
   
      //echo "Register Sucessful";
     
@@ -34,7 +34,7 @@ class DB_Work extends Controller
         $name=$request->input('name');
        $password=$request->input('password');
 
-      $data=DB::select('select id from user where name=? and password=?',[$name,$password]);
+      $data=DB::select('select id from users where name=? and password=?',[$name,$password]);
        if(count($data)){
          return redirect('home');
          
