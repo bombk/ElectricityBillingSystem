@@ -33,10 +33,6 @@ Route::post("/calculate2",[ControllerThirtyTB::class,'calculate']);
 Route::get("sixtytable",[ControllerSixtyTB::class,'select']);
 Route::post("/calculate3",[ControllerSixtyTB::class,'calculate']);
 
-
-Route::get("ampdetails",[AmpDetailController::class,'index']);
-Route::get("amp",[AmpController::class,'index']);
-
 Route::view('register',"register");
 Route::post("/store",[DB_Work::class,'store']);
 Route::post("/logs",[DB_Work::class,'logs']);

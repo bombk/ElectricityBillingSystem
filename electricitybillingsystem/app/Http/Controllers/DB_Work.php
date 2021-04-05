@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use GrahamCampbell\ResultType\Result;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\URL;
 use App\Models\Amp;
 
 class DB_Work extends Controller
@@ -95,7 +94,7 @@ class DB_Work extends Controller
             echo "21-30 Unit Cost Rs. ".$unitCost1."<br><br>";
             echo "31-50 Unit Cost Rs. ".$unitCost2."<br><br>";
            
-            $calc=$minAmt[3]+$unitCost1+$unitCost1+$unitCost2;
+            $calc=$minAmt[3]+$unitCost+$unitCost1+$unitCost2;
             return "Total Amount is Rs. ".$calc;
 
           }
@@ -114,7 +113,7 @@ class DB_Work extends Controller
             echo "31-50 Unit Cost Rs. ".$unitCost2."<br><br>";
             echo "51-100 Unit Cost Rs. ".$unitCost3."<br><br>";
            
-            $calc=$minAmt[3]+$unitCost1+$unitCost1+$unitCost2+$unitCost3;
+            $calc=$minAmt[4]+$unitCost+$unitCost1+$unitCost2+$unitCost3;
             return "Total Amount is Rs. ".$calc;
 
           }
@@ -136,7 +135,7 @@ class DB_Work extends Controller
             echo "51-100 Unit Cost Rs. ".$unitCost3."<br><br>";
             echo "101-150 Unit Cost Rs. ".$unitCost4."<br><br>";
            
-            $calc=$minAmt[3]+$unitCost1+$unitCost1+$unitCost2+$unitCost3+$unitCost4;
+            $calc=$minAmt[5]+$unitCost+$unitCost1+$unitCost2+$unitCost3+$unitCost4;
             return "Total Amount is Rs. ".$calc;
 
           }
@@ -160,7 +159,7 @@ class DB_Work extends Controller
             echo "101-150 Unit Cost Rs. ".$unitCost4."<br><br>";
             echo "151-250 Unit Cost Rs. ".$unitCost5."<br><br>";
            
-            $calc=$minAmt[3]+$unitCost1+$unitCost1+$unitCost2+$unitCost3+$unitCost4+$unitCost5;
+            $calc=$minAmt[6]+$unitCost+$unitCost1+$unitCost2+$unitCost3+$unitCost4+$unitCost5;
             return "Total Amount is Rs. ".$calc;
 
           }
@@ -187,7 +186,7 @@ class DB_Work extends Controller
             echo "151-250 Unit Cost Rs. ".$unitCost5."<br><br>";
             echo "251-400 Unit Cost Rs. ".$unitCost6."<br><br>";
            
-            $calc=$minAmt[3]+$unitCost1+$unitCost1+$unitCost2+$unitCost3+$unitCost4+$unitCost5+$unitCost6;
+            $calc=$minAmt[7]+$unitCost+$unitCost1+$unitCost2+$unitCost3+$unitCost4+$unitCost5+$unitCost6;
             return "Total Amount is Rs. ".$calc;
 
           }
@@ -217,7 +216,7 @@ class DB_Work extends Controller
             echo "251-400 Unit Cost Rs. ".$unitCost6."<br><br>";
             echo "401 Above Unit Cost Rs. ".$unitCost7."<br><br>";
            
-            $calc=$minAmt[3]+$unitCost1+$unitCost1+$unitCost2+$unitCost3+$unitCost4+$unitCost5+$unitCost6+$unitCost7;
+            $calc=$minAmt[8]+$unitCost+$unitCost1+$unitCost2+$unitCost3+$unitCost4+$unitCost5+$unitCost6+$unitCost7;
             return "Total Amount is Rs. ".$calc;
           }
 
