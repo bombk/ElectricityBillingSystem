@@ -6,10 +6,13 @@
         <h3>Register User</h3>
 
             <form class="" action="{{URL::to('store')}}" method="post">
-            @csrf
-                    <input type="text" name="name" placeholder="name" value=""><br><br>
-                    <input type="text" name="email" placeholder="email" value=""><br><br>
-                    <input type="password" name="password" placeholder="password" value=""><br><br>
+            @csrf   
+                    <label>Name</label><br><br>
+                    <input type="text" name="name" placeholder="Enter Name" value=""><br><br>
+                    <label>Email</label><br><br>
+                    <input type="text" name="email" placeholder="Enter Email" value=""><br><br>
+                    <label>Password</label><br><br>
+                    <input type="password" name="password" placeholder="Password" value=""><br><br>
             
                  <button type="submit" name="button">Register</button>
             </form>

@@ -6,6 +6,9 @@ use GrahamCampbell\ResultType\Result;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Amp;
+use App\Models\User;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Illuminate\Support\Facades\Crypt;
 
 class DB_Work extends Controller
 {
@@ -16,13 +19,14 @@ class DB_Work extends Controller
    }
    public  function store(Request $request){
     // print_r($request->input());
-     $name=$request->input('name');
-     $email=$request->input('email');
-     $password=$request->input('password');
+     $user=new User;
+    $user->name=$request->input('name');
+     $user->email=$request->input('email');
 
-  $data2= DB::insert('insert into users(name,email,password) values(?,?,?)',[$name,$email,$password]);
-  
-     //echo "Register Sucessful";
+     $user->password=Crypt::encrypt($request->input('password'));
+     $user->save();
+
+     $request->session()->put('user',$request->input('name'));
     
       $request->session()->flash('msg','Register Sucessful');
       return redirect('/');
@@ -30,12 +34,14 @@ class DB_Work extends Controller
     
   }
  public function logs(Request $request){
-  
-        $name=$request->input('name');
-       $password=$request->input('password');
 
-      $data=DB::select('select id from users where name=? and password=?',[$name,$password]);
-       if(count($data)){
+          $user=User::where('name',$request->input('name'))->get();
+          
+          if(Crypt::decrypt($user[0]->password)==$request->input('password'))
+
+        {
+
+          $request->session()->put('user',$user[0]->name);
          return redirect('home');
          
           
