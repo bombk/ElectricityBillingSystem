@@ -12,14 +12,13 @@
         </style>
     </head>
     <body class="">
+    <h3>Select Ampere</h3>
     <select id="url" onchange="urlHandler(this.value)">
-            <option disabled selected value>Select Ampere</option>
             <option value="{{URL::to('home')}}">5 Ampere</option>
             <option value="{{URL::to('fifteentable')}}">15 Ampere</option>
             <option value="{{URL::to('thirtytable')}}">30 Ampere</option>
             <option value="{{URL::to('sixtytable')}}">60 Ampere</option>
         </select>
-</body>
     <br></br>
     <h3> 5 Ampare Table</h3>
     <table border="2">
@@ -32,10 +31,9 @@
         </tr>
         @foreach($result as $data)
         <tr>
-        
-            <td>{{$data->kwprhr}}</td>
-            <td>{{$data->minAmt}}</td>
-            <td>{{$data->energyRate}}</td>
+            <td>{{$data->range}}</td>
+            <td>{{$data->minamt}}</td>
+            <td>{{$data->energyrate}}</td>
         </tr>
         @endforeach
     </table>

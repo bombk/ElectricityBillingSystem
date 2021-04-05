@@ -6,28 +6,14 @@ use GrahamCampbell\ResultType\Result;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
+use App\Models\Amp;
 
 class DB_Work extends Controller
 {
     function select(){
-        $result=DB::table('5amp')->get();
-       // $result=DB::table('5amp')->select('minAmt')->where('kw/hr','0-10')->get();   
+      $result= Amp::find(1)->getAmpDetails;
+      
       return view('home',compact('result'));
-        
-       // $result=DB::table('15amp')->select('minAmt','energyRate')->get();
-        // $result=DB::table('5amp')->select('minAmt')->where('kw/hr','0-10')->get();   
-        // echo '<pre>';
-       //  print_r($result);
-
-        // $result=DB::table('30amp')->select('minAmt','energyRate')->get();
-         // $result=DB::table('5amp')->select('minAmt')->where('kw/hr','0-10')->get();   
-         // echo '<pre>';
-        //  print_r($result);
-
-          //$result=DB::table('60amp')->select('minAmt','energyRate')->get();
-          // $result=DB::table('5amp')->select('minAmt')->where('kw/hr','0-10')->get();   
-          // echo '<pre>';
-         //  print_r($result);
    }
    public  function store(Request $request){
     // print_r($request->input());
@@ -60,134 +46,82 @@ class DB_Work extends Controller
        }
     }
     public function calculate(Request $req){
+
+      $minAmt=Amp::find(1)->getAmpDetails->pluck('minamt');
+
+      $energyRate=Amp::find(1)->getAmpDetails->pluck('energyrate');
+
           $unit= $req->unit;
+
 
           if($unit<=10){
             $qmlv=0;
-            $minAmt=DB::table('5amp')->select('minAmt')->where('id','1')->get();
-            $data=json_decode($minAmt);
-            $finalMinAmt=$data[0]->minAmt;
 
-            $energyRate=DB::table('5amp')->select('energyRate')->where('id','1')->get();
-            $data1=json_decode($energyRate);
-            $finalEnRt=$data1[0]->energyRate;
-           
-           $calc=$finalMinAmt+$qmlv+$unit*$finalEnRt;
-      
-            return "Total Amount is Rs. ".$calc;
+           $calc=$minAmt[0]+$qmlv+$unit*$energyRate[0];
+         
+          echo "Total Amount is Rs. ".$calc;
 
           }
-          else if($unit > 10 && $unit <= 20){
-
-            $minAmt=DB::table('5amp')->select('minAmt')->where('id','2')->get();
-            $data=json_decode($minAmt);
-            $finalMinAmt=$data[0]->minAmt;
-
-            $energyRate=DB::table('5amp')->select('energyRate')->where('id','2')->get();
-            $data1=json_decode($energyRate);
-            $finalEnRt=$data1[0]->energyRate;
+          else if($unit >10 && $unit <= 20){
+            $qmlv=0;
            
-           $calc=$finalMinAmt+$unit*$finalEnRt;
+  
+           $calc=$minAmt[1]+$qmlv+$unit*$energyRate[1];
             return "Total Amount is Rs. ".$calc;
 
           }
           else if($unit > 20 && $unit <= 30){
             $qmlv=60;
-            $minAmt=DB::table('5amp')->select('minAmt')->where('id','3')->get();
-            $data=json_decode($minAmt);
-            $finalMinAmt=$data[0]->minAmt;
-
-            $energyRate=DB::table('5amp')->select('energyRate')->where('id','3')->get();
-            $data1=json_decode($energyRate);
-            $finalEnRt=$data1[0]->energyRate;
            
-           $calc=$finalMinAmt+$qmlv+($unit-20)*$finalEnRt;
+           $calc=$minAmt[2]+$qmlv+($unit-20)*$energyRate[2];
             return "Total Amount is Rs. ".$calc;
 
           }
           else if($unit > 30 && $unit <= 50){
             $qmlv=125;
-            $minAmt=DB::table('5amp')->select('minAmt')->where('id','4')->get();
-            $data=json_decode($minAmt);
-            $finalMinAmt=$data[0]->minAmt;
-
-            $energyRate=DB::table('5amp')->select('energyRate')->where('id','4')->get();
-            $data1=json_decode($energyRate);
-            $finalEnRt=$data1[0]->energyRate;
-           
-           $calc=$finalMinAmt+$qmlv+($unit-30)*$finalEnRt;
+          
+            $calc=$minAmt[3]+$qmlv+($unit-30)*$energyRate[3];
             return "Total Amount is Rs. ".$calc;
 
           }
           else if($unit > 50 && $unit <= 100){
             $qmlv=285;
-            $minAmt=DB::table('5amp')->select('minAmt')->where('id','5')->get();
-            $data=json_decode($minAmt);
-            $finalMinAmt=$data[0]->minAmt;
-
-            $energyRate=DB::table('5amp')->select('energyRate')->where('id','5')->get();
-            $data1=json_decode($energyRate);
-            $finalEnRt=$data1[0]->energyRate;
            
-           $calc=$finalMinAmt+$qmlv+($unit-50)*$finalEnRt;
+           
+            $calc=$minAmt[4]+$qmlv+($unit-50)*$energyRate[4];
             return "Total Amount is Rs. ".$calc;
 
           }
           else if($unit > 100 && $unit <= 150){
             $qmlv=760;
-            $minAmt=DB::table('5amp')->select('minAmt')->where('id','6')->get();
-            $data=json_decode($minAmt);
-            $finalMinAmt=$data[0]->minAmt;
-
-            $energyRate=DB::table('5amp')->select('energyRate')->where('id','6')->get();
-            $data1=json_decode($energyRate);
-            $finalEnRt=$data1[0]->energyRate;
            
-           $calc=$finalMinAmt+$qmlv+($unit-100)*$finalEnRt;
+           
+            $calc=$minAmt[5]+$qmlv+($unit-100)*$energyRate[5];
             return "Total Amount is Rs. ".$calc;
 
           }
           else if($unit > 150 && $unit <= 250){
             $qmlv=1235;
-            $minAmt=DB::table('5amp')->select('minAmt')->where('id','7')->get();
-            $data=json_decode($minAmt);
-            $finalMinAmt=$data[0]->minAmt;
-
-            $energyRate=DB::table('5amp')->select('energyRate')->where('id','7')->get();
-            $data1=json_decode($energyRate);
-            $finalEnRt=$data1[0]->energyRate;
            
-           $calc=$finalMinAmt+$qmlv+($unit-150)*$finalEnRt;
+           
+            $calc=$minAmt[6]+$qmlv+($unit-150)*$energyRate[6];
             return "Total Amount is Rs. ".$calc;
 
           }
           else if($unit > 250 && $unit <= 400){
             $qmlv=2235;
-            $minAmt=DB::table('5amp')->select('minAmt')->where('id','8')->get();
-            $data=json_decode($minAmt);
-            $finalMinAmt=$data[0]->minAmt;
-
-            $energyRate=DB::table('5amp')->select('energyRate')->where('id','8')->get();
-            $data1=json_decode($energyRate);
-            $finalEnRt=$data1[0]->energyRate;
+          
            
-           $calc=$finalMinAmt+$qmlv+($unit-250)*$finalEnRt;
+            $calc=$minAmt[7]+$qmlv+($unit-250)*$energyRate[7];
             return "Total Amount is Rs. ".$calc;
 
           }
           
           else{
             $qmlv=4035;
-            $minAmt=DB::table('5amp')->select('minAmt')->where('id','9')->get();
-            $data=json_decode($minAmt);
-            $finalMinAmt=$data[0]->minAmt;
-
-            $energyRate=DB::table('5amp')->select('energyRate')->where('id','9')->get();
-            $data1=json_decode($energyRate);
-            $finalEnRt=$data1[0]->energyRate;
            
-           // return $finalMinAmt;
-           $calc=$finalMinAmt+$qmlv+($unit-400)*$finalEnRt;
+
+            $calc=$minAmt[8]+$qmlv+($unit-400)*$energyRate[8];
             return "Total Amount is Rs. ".$calc;
           }
 
