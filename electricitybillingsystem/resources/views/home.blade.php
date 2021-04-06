@@ -3,15 +3,11 @@
 <!DOCTYPE html>
 <html >
     <head>
-        <meta charset="utf-8">
-       
-    
+      
         <link href="css/main.css" rel="stylesheet">
     </head>
-    <di class="container">
- 
     <body >
-    <h3>Select Ampere</h3>
+    <h3 >Select Ampere</h3>
      
                 <select id="url" onchange="urlHandler(this.value)">
                         <option value="{{URL::to('home')}}">5 Ampere</option>
@@ -23,7 +19,7 @@
     <br></br>
     <h3> 5 Ampare Table</h3>
  
-            <table border="2">
+            <table  id="table">
                 <tr>
                 
                     <td>KW/HR</td>
@@ -43,7 +39,7 @@
    
    
 
-            <form method="post" action="{{URL::to('calculate')}}">
+            <form id="form" method="post" action="{{URL::to('calculate')}}">
             @csrf
                 <input type="number" min="0" required placeholder="Enter Total Unit" name="unit">
                 <input type="submit" value="Calculate" name="submit">

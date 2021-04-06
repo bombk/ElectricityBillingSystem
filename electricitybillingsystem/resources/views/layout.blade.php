@@ -10,18 +10,19 @@
 <style>
 
     .header{
-        color:blue;
+        color:darkblue;
+        
     }
     .content{
-        color: blue;
+        color: darkblue;
     }
 </style>
 <body>
     <div class="header">
         @section('header')
         @show
-            <p>User {{session('user')}}</p>
-            <a href="{{URL::to('logout')}}">logout</a>
+            <p style="margin-left: 30%;">User {{session('user')}}</p>
+            <a style="margin-left: 30%;" href="{{URL::to('logout')}}">logout</a>
     </div>
     <div class="content">
         @section('content')

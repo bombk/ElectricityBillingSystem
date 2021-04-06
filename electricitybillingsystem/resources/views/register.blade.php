@@ -2,10 +2,11 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
     </head>
+    <link href="css/main.css" rel="stylesheet">
         <body>
         <h3>Register User</h3>
 
-            <form class="" action="{{URL::to('store')}}" method="post">
+            <form id="form" class="" action="{{URL::to('store')}}" method="post">
             @csrf   
                     <label>Name</label><br><br>
                     <input type="text" name="name" placeholder="Enter Name" value=""><br>
@@ -21,7 +22,7 @@
                  <button type="submit" name="button">Register</button>
             </form>
             <br><br>
-            <a href="/">Click Here to Login</a>
+            <a style="margin-left: 30%;" href="/">Click Here to Login</a>
          
         </body>
 </html>
