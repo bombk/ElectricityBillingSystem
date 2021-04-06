@@ -37,7 +37,6 @@ class Controller extends BaseController
      public function logs(Request $request){
     
               $user=User::where('name',$request->input('name'))->get();
-              
               if(Crypt::decrypt($user[0]->password)==$request->input('password'))
 
             {
