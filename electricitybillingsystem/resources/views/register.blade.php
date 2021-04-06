@@ -8,11 +8,15 @@
             <form class="" action="{{URL::to('store')}}" method="post">
             @csrf   
                     <label>Name</label><br><br>
-                    <input type="text" name="name" placeholder="Enter Name" value=""><br><br>
+                    <input type="text" name="name" placeholder="Enter Name" value=""><br>
+                    <span>@error('name'){{$message}}@enderror</span>
+                    <br>
                     <label>Email</label><br><br>
-                    <input type="text" name="email" placeholder="Enter Email" value=""><br><br>
+                    <input type="text" name="email" placeholder="Enter Email" value=""><br>
+                    <span>@error('email'){{$message}}@enderror</span><br>
                     <label>Password</label><br><br>
-                    <input type="password" name="password" placeholder="Password" value=""><br><br>
+                    <input type="password" name="password" placeholder="Password" value=""><br>
+                    <span>@error('password'){{$message}}@enderror</span><br>
             
                  <button type="submit" name="button">Register</button>
             </form>

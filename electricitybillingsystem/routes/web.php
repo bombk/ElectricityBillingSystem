@@ -7,6 +7,7 @@ use App\Http\Controllers\DB_Work;
 use App\Http\Controllers\ControllerFifteenTB;
 use App\Http\Controllers\ControllerThirtyTB;
 use App\Http\Controllers\ControllerSixtyTB;
+use App\Http\Controllers\Controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,10 +37,12 @@ Route::group(['middleware'=>['web']],function(){
     Route::get("sixtytable",[ControllerSixtyTB::class,'select']);
     Route::post("/calculate3",[ControllerSixtyTB::class,'calculate']);
     
-   Route::view('register',"register");
-   Route::view('login',"login");
-    Route::post("/store",[DB_Work::class,'store']);
-    Route::post("/logs",[DB_Work::class,'logs']);
+    Route::view('register',"register");
+    Route::view('login',"login");
+    
+    Route::post("/store",[Controller::class,'store']);
+    Route::post("/logs",[Controller::class,'logs']);
+    Route::get("/logout",[Controller::class,'logout']);
 
 });
 

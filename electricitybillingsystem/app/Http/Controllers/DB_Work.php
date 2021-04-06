@@ -17,41 +17,9 @@ class DB_Work extends Controller
       
       return view('home',compact('result'));
    }
-   public  function store(Request $request){
-    // print_r($request->input());
-     $user=new User;
-    $user->name=$request->input('name');
-     $user->email=$request->input('email');
-
-     $user->password=Crypt::encrypt($request->input('password'));
-     $user->save();
-
-     $request->session()->put('user',$request->input('name'));
-    
-      $request->session()->flash('msg','Register Sucessful');
-      return redirect('/');
-    
-    
-  }
- public function logs(Request $request){
-
-          $user=User::where('name',$request->input('name'))->get();
-          
-          if(Crypt::decrypt($user[0]->password)==$request->input('password'))
-
-        {
-
-          $request->session()->put('user',$user[0]->name);
-         return redirect('home');
-         
-          
-       }
-       else{
-           echo "Name or Password incorrect";
-       }
-    }
+  
     public function calculate(Request $req){
-
+      
       $minAmt=Amp::find(1)->getAmpDetails->pluck('minamt');
 
       $energyRate=Amp::find(1)->getAmpDetails->pluck('energyrate');

@@ -16,7 +16,7 @@ class ControllerSixtyTB extends Controller
 
  
    public function calculate(Request $req){
-
+ 
     $minAmt=Amp::find(4)->getAmpDetails->pluck('minamt');
 
     $energyRate=Amp::find(4)->getAmpDetails->pluck('energyrate');

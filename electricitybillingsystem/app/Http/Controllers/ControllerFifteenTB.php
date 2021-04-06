@@ -14,8 +14,8 @@ class ControllerFifteenTB extends Controller
       return view('fifteentable',compact('result'));
    }
 
-   public function calculate(Request $req){
-
+   public function calculate(Request $req){  
+          
     $minAmt=Amp::find(2)->getAmpDetails->pluck('minamt');
 
     $energyRate=Amp::find(2)->getAmpDetails->pluck('energyrate');

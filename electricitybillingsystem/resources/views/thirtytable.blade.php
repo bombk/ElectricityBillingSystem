@@ -1,3 +1,5 @@
+@extends('layout')
+@section('title','30Amp')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -5,14 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/main.css" rel="stylesheet">
 
-        <title>30 Amp</title>
-    
-
-       
-           
-        </style>
     </head>
-    <body class="content-table">
+
+    <body>
     <h3>Select Ampere</h3>
         <select id="url" onchange="urlHandler(this.value)"> 
             <option value="{{URL::to('thirtytable')}}">30 Ampere</option>
@@ -43,14 +40,15 @@
    
    <form method="post" action="{{URL::to('calculate2')}}">
    @csrf
-    <input type="number" min="0" placeholder="Enter Total Unit" name="unit">
+    <input type="number" min="0" required placeholder="Enter Total Unit" name="unit">
     <input type="submit" value="Calculate" name="submit">
    </form>
-        
     </body>
-    <script>
- function urlHandler(value) {                               
-    window.location.assign(`${value}`);
-}
-</script>
+
+
+            <script>
+        function urlHandler(value) {                               
+            window.location.assign(`${value}`);
+        }
+        </script>
 </html>
