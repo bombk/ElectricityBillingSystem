@@ -16,9 +16,6 @@ class AmpDetailController extends Controller
      */
     public function index()
     {
-        
-      
-        
     }
 
     /**
@@ -29,7 +26,7 @@ class AmpDetailController extends Controller
     public function create()
     {
         //
-        
+
     }
 
     /**
