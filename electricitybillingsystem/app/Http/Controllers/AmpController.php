@@ -14,10 +14,10 @@ class AmpController extends Controller
      */
     public function index()
     {
-       
-        $result= Amp::find(1)->getAmpDetails;
-      
-        return view('home',compact('result'));
+
+        $result = Amp::find(1)->getAmpDetails;
+
+        return view('home', compact('result'));
     }
 
     /**

@@ -1,13 +1,11 @@
 <?php
 
-use App\Http\Controllers\AmpController;
-use App\Http\Controllers\AmpDetailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DB_Work;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\ControllerFifteenTB;
 use App\Http\Controllers\ControllerThirtyTB;
 use App\Http\Controllers\ControllerSixtyTB;
-use App\Http\Controllers\Controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,9 +21,8 @@ use App\Http\Controllers\Controller;
 Route::get('/', function () {
     return view('login');
 });
+Route::group(['middleware' => ['web']], function () {
 
-Route::middleware(['web'])->group(function () {
-    
         Route::get("home",[DB_Work::class,'select']);
         Route::post("/calculate",[DB_Work::class,'calculate']);
         
@@ -42,13 +39,7 @@ Route::middleware(['web'])->group(function () {
         Route::post("/logs",[Controller::class,'logs']);
         Route::get("/logout",[Controller::class,'logout']);
         Route::view('register',"register");
+        Route::view('result',"result");
         Route::view('login',"login");
         
 });
-
-    
-
-
-
-
-//Route::post('index',"index");
