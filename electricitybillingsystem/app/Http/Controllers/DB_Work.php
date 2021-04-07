@@ -30,13 +30,16 @@ class DB_Work extends Controller
           if($unit <=10){
             
          
-          echo "Calculation! <br><br> Total Unit ".$unit;
+         echo "Calculation! <br><br> Total Unit ".$unit;
           $calc=$minAmt[0]+$unit*$energyRate[0];
-           echo "<br><br>Total Amount is Rs. ".$calc;
+
+    
+          echo "<br><br>Total Amount is Rs. ".$calc;
 
           }
           else if($unit >10 && $unit <= 20){
               $unitCost=$unit*$energyRate[1];
+              $req->session()->flash('unitCost',$unitCost);
             echo "Calculation! <br><br> Total Unit ".$unit."<br><br>0-20 Unit Cost Rs. ".$unitCost."<br><br>";
            
             $calc=$minAmt[1]+$unitCost;

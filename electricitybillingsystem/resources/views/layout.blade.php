@@ -21,7 +21,7 @@
     <div class="header">
         @section('header')
         @show
-            <p style="margin-left: 30%;">User {{session('user')}}</p>
+            <p style="margin-left: 30%;">User Name {{session('user')}}</p>
             <a style="margin-left: 30%;" href="{{URL::to('logout')}}">logout</a>
     </div>
     <div class="content">

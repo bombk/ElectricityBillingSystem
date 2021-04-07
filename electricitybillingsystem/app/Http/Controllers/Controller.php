@@ -19,7 +19,7 @@ class Controller extends BaseController
         // print_r($request->input());
         $request->validate([
             'name'=>'required',
-            'email'=>'required',
+            'email'=>'required|email',
             'password'=>'required'
         ]);
         $user=new User;

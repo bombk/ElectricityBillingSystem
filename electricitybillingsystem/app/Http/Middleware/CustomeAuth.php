@@ -19,9 +19,18 @@ class CustomeAuth
      */
     public function handle(Request $request, Closure $next)
     {
+     
+      $name=Session::get('user');
+
+    //  if($name!='wlinkuser'){
+
+     //   return redirect('login');
+      // }
+      // else{
+      //   return redirect('home');
+       //}
+
         
-        $path=$request->path();
-    
       //  if(($path=="login" || $path=="register") && (Session::get('user'))){
        //     return redirect('home');
            
