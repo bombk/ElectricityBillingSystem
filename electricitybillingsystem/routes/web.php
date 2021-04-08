@@ -25,25 +25,27 @@ Route::get('/', function () {
 });
 Route::group(['middleware' => ['web']], function () {
 
-        Route::get("home",[DB_Work::class,'select']);
-        Route::post("/calculate",[DB_Work::class,'calculate']);
-        
-        Route::get("fifteentable",[ControllerFifteenTB::class,'select']);
-        Route::post("/calculate1",[ControllerFifteenTB::class,'calculate']);
-        
-        Route::get("thirtytable",[ControllerThirtyTB::class,'select']);
-        Route::post("/calculate2/{id}",[ControllerThirtyTB::class,'calculate']);
-        
-        Route::get("sixtytable",[ControllerSixtyTB::class,'select']);
-        Route::post("/calculate3",[ControllerSixtyTB::class,'calculate']);
-        
+        Route::get('welcome', [HomeController::class,'index']);
+        Route::get('GetSubCatAgainstMainCatEdit/{id}',[HomeController::class,'GetSubCatAgainstMainCatEdit']);
+        Route::post("/calculate",[HomeController::class,'calculate']);
+
         Route::post("/store",[UserLogin::class,'store']);
         Route::post("/logs",[UserLogin::class,'logs']);
         Route::get("/logout",[UserLogin::class,'logout']);
+
         Route::view('register',"register");
         Route::view('result',"result");
         Route::view('login',"login");
+
+      //  Route::get("fifteentable",[ControllerFifteenTB::class,'select']);
+      //  Route::post("/calculate1",[ControllerFifteenTB::class,'calculate']);
+      //  Route::get("sixtytable",[ControllerSixtyTB::class,'select']);
+      //  Route::post("/calculate3",[ControllerSixtyTB::class,'calculate']);
+      //  Route::get("home",[DB_Work::class,'select']);
+      //  Route::post("/calculate",[DB_Work::class,'calculate']);
+
+        
+      
         
 });
-Route::get('welcome', [HomeController::class,'index']);
-Route::get('GetSubCatAgainstMainCatEdit/{id}',[HomeController::class,'GetSubCatAgainstMainCatEdit']);
+

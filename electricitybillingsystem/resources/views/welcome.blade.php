@@ -18,7 +18,7 @@
 
     <h3>Ampere Category<span class="gcolor"></span> </h3>
 
-    <select class="form-control formselect required" placeholder="Select Category" id="select">
+    <select id="select">
         <option value="0" disabled selected>Select
             Ampere</option>
         @foreach($data as $categories)
@@ -42,10 +42,13 @@
 
     </table>
 </br></br>
-    <form id="form" method="post" action="{{URL::to('calculate2/{id}')}}">
+    <form id="form" method="post" action="{{URL::to('calculate')}}">
         @csrf
         <input type="number" min="0" required placeholder="Enter Total Unit" name="unit">
+        <input type="text" readonly="readonly" hidden name="id" id="txtresults"/><br><br>
         <input type="submit" value="Calculate" name="submit">
+
+      
     </form>
   
 </body>
@@ -73,6 +76,15 @@
                 });
             });
         });
+
+    </script>
+    <script>
+        $(function(){
+            $('#select').change(function(){
+                var id=$('#select option:selected').val();
+                $('#txtresults').val(id);
+            })
+        })
 
     </script>
 

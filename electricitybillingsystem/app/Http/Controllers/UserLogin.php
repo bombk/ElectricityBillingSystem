@@ -32,7 +32,7 @@ class UserLogin extends Controller
         $user = User::where('name', $request->input('name'))->get();
         if (Crypt::decrypt($user[0]->password) == $request->input('password')) {
             $request->session()->put('user', $user[0]->name);
-            return redirect('home');
+            return redirect('welcome');
         } else {
             echo "Name or Password incorrect";
         }

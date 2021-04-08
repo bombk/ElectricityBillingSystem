@@ -13,11 +13,12 @@
 
 <body>
     <h3> Total Unit = {{session('unit')}} Unit</h3>
+    <h3> Minimun Amont =Rs. {{session('minamt')}}</h3>
     <table id="table">
         <tr>
 
-            <td>KW/HR</td>
-            <td>Amount</td>
+            <td>Unit Range</td>
+            <td>Charge</td>
 
         </tr>
         <td>0-10</td>
@@ -70,7 +71,7 @@
         </tr>
 
     </table><br><br>
-    <h3>Total Amout = Rs. {{session('calc')}}</h3><br>
+    <h3>Total Amout = Rs. {{session('calc')}}</h3>
 </body>
 
 </html>
