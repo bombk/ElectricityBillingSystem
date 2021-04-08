@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Amp;
+use App\Models\AmpDetail;
 
 class ControllerThirtyTB extends Controller
 {
@@ -15,12 +16,12 @@ class ControllerThirtyTB extends Controller
   }
 
 
-  public function calculate(Request $req)
+  public function calculate($id,Request $req)
   {
 
-    $minAmt = Amp::find(3)->getAmpDetails->pluck('minamt');
+    $minAmt = AmpDetail::where('amp_id', $id)->pluck('minamt');
 
-    $energyRate = Amp::find(3)->getAmpDetails->pluck('energyrate');
+    $energyRate = AmpDetail::where('amp_id', $id)->pluck('energyrate');
 
     $unit = $req->unit;
 

@@ -12,7 +12,7 @@
 
 <body class="">
     <h3>Select Ampere</h3>
-    <select id="url" onchange="urlHandler(this.value)">
+    <select id="select" onchange="urlHandler(this.value)">
         <option value="{{URL::to('sixtytable')}}">60 Ampere</option>
         <option value="{{URL::to('home')}}">5 Ampere</option>
         <option value="{{URL::to('fifteentable')}}">15 Ampere</option>
