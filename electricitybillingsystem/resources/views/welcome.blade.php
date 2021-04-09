@@ -42,7 +42,7 @@
     <form id="form" method="post" action="{{URL::to('calculate')}}">
         @csrf
         <input type="number" min="0" required placeholder="Enter Total Unit" name="unit">
-        <input type="text" readonly="readonly" hidden name="id" id="txtresults" /><br><br>
+        <input type="text" readonly="readonly" hidden required name="id" id="txtresults" /><br><br>
         <input type="submit" value="Calculate" name="submit">
 
 
