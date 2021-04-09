@@ -28,19 +28,14 @@
         @endforeach
     </select>
 <br><br>
-<table id="select">
-    <tr >
 
-        <td>KW/HR</td>
-        <td>Min Amount</td>
-        <td>Energy Rate</td>
-
-    </tr></table>
 
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+
     <table id="table">
 
     </table>
+
 </br></br>
     <form id="form" method="post" action="{{URL::to('calculate')}}">
         @csrf
@@ -63,6 +58,7 @@
                         var response = JSON.parse(response);
                         console.log(response);
                         $('#table').empty();
+                        $('#table').append('<tr><td>KW/HR Range</td><td>Min Amount</td><td>Energy Rate</td></tr>');
 
                         response.forEach(element => {
                             $('#table').append(`

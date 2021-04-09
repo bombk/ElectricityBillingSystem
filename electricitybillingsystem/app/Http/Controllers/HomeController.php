@@ -17,10 +17,11 @@ class HomeController extends Controller
 
 
     public function GetSubCatAgainstMainCatEdit($id){
+    
         echo json_encode(AmpDetail::where('amp_id', $id)->get());
     }
 
-    
+
     public function calculate(Request $req)
     {
       $id=$req->input('id');

@@ -17,7 +17,7 @@
     <table id="table">
         <tr>
 
-            <td>Unit Range</td>
+            <td>KW/HR Range</td>
             <td>Charge</td>
 
         </tr>
