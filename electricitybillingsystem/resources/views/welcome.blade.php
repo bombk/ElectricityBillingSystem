@@ -53,6 +53,9 @@
     $(document).ready(function() {
         $('#select').on('change', function() {
             let id = $(this).val();
+
+            $('#txtresults').val(id); //text value
+
             $.ajax({
                 type: 'GET',
                 url: 'GetTableDetails/' + id,
@@ -74,14 +77,6 @@
             });
         });
     });
-</script>
-<script>
-    $(function() {
-        $('#select').change(function() {
-            var id = $('#select option:selected').val();
-            $('#txtresults').val(id);
-        })
-    })
 </script>
 
 </html>
