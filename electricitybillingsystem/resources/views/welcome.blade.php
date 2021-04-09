@@ -12,7 +12,9 @@
 
 </head>
 <link href="css/main.css" rel="stylesheet">
+
 <body>
+@csrf
 
 
 
@@ -27,7 +29,7 @@
         </option>
         @endforeach
     </select>
-<br><br>
+    <br><br>
 
 
     <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
@@ -36,52 +38,50 @@
 
     </table>
 
-</br></br>
+    </br></br>
     <form id="form" method="post" action="{{URL::to('calculate')}}">
         @csrf
         <input type="number" min="0" required placeholder="Enter Total Unit" name="unit">
-        <input type="text" readonly="readonly" hidden name="id" id="txtresults"/><br><br>
+        <input type="text" readonly="readonly" hidden name="id" id="txtresults" /><br><br>
         <input type="submit" value="Calculate" name="submit">
 
-      
+
     </form>
-  
+
 </body>
 <script>
-        $(document).ready(function() {
-            $('#select').on('change', function() {
-                let id = $(this).val();
-                $.ajax({
-                    type: 'GET',
-                    url: 'GetTableDetails/' + id,
-                    success: function(response) {
-                        var response = JSON.parse(response);
-                        console.log(response);
-                        $('#table').empty();
-                        $('#table').append('<tr><td>KW/HR Range</td><td>Min Amount</td><td>Energy Rate</td></tr>');
+    $(document).ready(function() {
+        $('#select').on('change', function() {
+            let id = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: 'GetTableDetails/' + id,
+                success: function(response) {
+                    var response = JSON.parse(response);
+                    console.log(response);
+                    $('#table').empty();
+                    $('#table').append('<tr><td>KW/HR Range</td><td>Min Amount</td><td>Energy Rate</td></tr>');
 
-                        response.forEach(element => {
-                            $('#table').append(`
+                    response.forEach(element => {
+                        $('#table').append(`
                     <tr>
                     <td>${element['range']}</td>
                     <td>${element['minamt']}</td>
                     <td>${element['energyrate']}</td>
                     </tr>`);
-                        });
-                    }
-                });
+                    });
+                }
             });
         });
-
-    </script>
-    <script>
-        $(function(){
-            $('#select').change(function(){
-                var id=$('#select option:selected').val();
-                $('#txtresults').val(id);
-            })
+    });
+</script>
+<script>
+    $(function() {
+        $('#select').change(function() {
+            var id = $('#select option:selected').val();
+            $('#txtresults').val(id);
         })
-
-    </script>
+    })
+</script>
 
 </html>

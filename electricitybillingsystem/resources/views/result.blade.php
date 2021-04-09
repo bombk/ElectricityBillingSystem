@@ -12,6 +12,7 @@
 <link href="css/main.css" rel="stylesheet">
 
 <body>
+    @csrf
     <h3> Total Unit = {{session('unit')}} Unit</h3>
     <h3> Minimun Amont =Rs. {{session('minamt')}}</h3>
     <table id="table">

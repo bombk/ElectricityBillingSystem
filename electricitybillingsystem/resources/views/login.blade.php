@@ -5,6 +5,8 @@
 <link href="css/main.css" rel="stylesheet">
 
 <body>
+@csrf
+
     <p style="margin-left: 30%;">{{session('msg')}}</p>
     <br><br>
     <h3>Login User</h3>

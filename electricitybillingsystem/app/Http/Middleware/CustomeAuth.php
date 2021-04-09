@@ -20,20 +20,13 @@ class CustomeAuth
   public function handle(Request $request, Closure $next)
   {
 
-   // $name = Session::get('user');
-    
-  
-
-    //  if(($path=="login" || $path=="register") && (Session::get('user'))){
-    //     return redirect('home');
 
 
-    // }
-    // else if($path!='login' && !Session::get('user') && $path!='register' && !Session::get('user'))
-    //   {
-    //      return redirect('register');
-    //  }
-
+     
+          if(!Session::get('user')){
+            return redirect('login');
+          }
+          
     return $next($request);
   }
 }

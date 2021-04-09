@@ -23,29 +23,16 @@ use App\Http\Controllers\UserLogin;
 Route::get('/', function () {
     return view('login');
 });
-Route::group(['middleware' => ['web']], function () {
 
-        Route::get('welcome', [HomeController::class,'index']);
-        Route::get('GetTableDetails/{id}',[HomeController::class,'GetTableDetails']);
-        Route::post("/calculate",[HomeController::class,'calculate']);
+    Route::get('welcome', [HomeController::class, 'index'])->middleware('CustomeAuth');
+    Route::get('GetTableDetails/{id}', [HomeController::class, 'GetTableDetails']);
+    Route::post("/calculate", [HomeController::class, 'calculate']);
 
-        Route::post("/store",[UserLogin::class,'store']);
-        Route::post("/logs",[UserLogin::class,'logs']);
-        Route::get("/logout",[UserLogin::class,'logout']);
+    Route::post("/store", [UserLogin::class, 'store']);
+    Route::post("/logs", [UserLogin::class, 'logs']);
+    Route::get("/logout", [UserLogin::class, 'logout']);
 
-        Route::view('register',"register");
-        Route::view('result',"result");
-        Route::view('login',"login");
-
-      //  Route::get("fifteentable",[ControllerFifteenTB::class,'select']);
-      //  Route::post("/calculate1",[ControllerFifteenTB::class,'calculate']);
-      //  Route::get("sixtytable",[ControllerSixtyTB::class,'select']);
-      //  Route::post("/calculate3",[ControllerSixtyTB::class,'calculate']);
-      //  Route::get("home",[DB_Work::class,'select']);
-      //  Route::post("/calculate",[DB_Work::class,'calculate']);
-
-        
-      
-        
-});
+    Route::view('register', "register");
+    Route::view('result', "result")->middleware('CustomeAuth');
+    Route::view('login', "login");
 
