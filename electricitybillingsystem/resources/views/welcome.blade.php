@@ -18,7 +18,7 @@
 
     <h3>Ampere Category<span class="gcolor"></span> </h3>
 
-    <select id="select">
+    <select id="select" required>
         <option value="0" disabled selected>Select
             Ampere</option>
         @foreach($data as $categories)
@@ -53,7 +53,7 @@
                 let id = $(this).val();
                 $.ajax({
                     type: 'GET',
-                    url: 'GetSubCatAgainstMainCatEdit/' + id,
+                    url: 'GetTableDetails/' + id,
                     success: function(response) {
                         var response = JSON.parse(response);
                         console.log(response);

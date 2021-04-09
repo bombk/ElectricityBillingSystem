@@ -26,7 +26,7 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], function () {
 
         Route::get('welcome', [HomeController::class,'index']);
-        Route::get('GetSubCatAgainstMainCatEdit/{id}',[HomeController::class,'GetSubCatAgainstMainCatEdit']);
+        Route::get('GetTableDetails/{id}',[HomeController::class,'GetTableDetails']);
         Route::post("/calculate",[HomeController::class,'calculate']);
 
         Route::post("/store",[UserLogin::class,'store']);
