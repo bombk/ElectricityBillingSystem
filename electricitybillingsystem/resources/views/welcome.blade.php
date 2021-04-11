@@ -20,8 +20,6 @@
     <h3>Ampere Category<span class="gcolor"></span> </h3>
 
     <select id="select" required>
-        <option value="0" disabled selected>Select
-            Ampere</option>
         @foreach($data as $categories)
         <option value="{{ $categories->id }}">
             {{ ucfirst($categories->amp_id) }}
@@ -50,7 +48,31 @@
 </body>
 <script>
     $(document).ready(function() {
+
+        $('#txtresults').val(1); 
+
+        $.ajax({
+                type: 'GET',
+                url: 'GetTableDetails/' + 1,
+                success: function(response) {
+                    var response = JSON.parse(response);
+                    console.log(response);
+                    $('#table').empty();
+                    $('#table').append('<tr><td>KW/HR Range</td><td>Min Amount</td><td>Energy Rate</td></tr>');
+
+                    response.forEach(element => {
+                        $('#table').append(`
+                    <tr>
+                    <td>${element['range']}</td>
+                    <td>${element['minamt']}</td>
+                    <td>${element['energyrate']}</td>
+                    </tr>`);
+                    });
+                }
+            });
+
         $('#select').on('change', function() {
+           
             let id = $(this).val();
 
             $('#txtresults').val(id); //text value
@@ -76,6 +98,10 @@
             });
         });
     });
+    //$("#select").val("1").attr("selected","selected");
+   
 </script>
+
+
 
 </html>
