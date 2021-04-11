@@ -21,7 +21,7 @@
 
     <select id="select" required>
         @foreach($data as $categories)
-        <option value="{{ $categories->id }}">
+        <option value="{{ $categories->id }}" >
             {{ ucfirst($categories->amp_id) }}
         </option>
         @endforeach
@@ -29,7 +29,7 @@
     <br><br>
 
 
-    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+
 
     <table id="table">
 
@@ -46,6 +46,7 @@
     </form>
 
 </body>
+<script src="http://code.jquery.com/jquery-3.4.1.js"></script>
 <script>
     $(document).ready(function() {
 
